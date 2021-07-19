@@ -383,18 +383,16 @@ public class MultiPartEmail extends Email
         final String disposition)
         throws EmailException
     {
-        // verify that the URL is valid
-       try
-       {
-           final InputStream is = url.openStream();
-           is.close();
+
+       try(InputStream ignored = url.openStream()){
+           // just to validate the url
        }
        catch (final IOException e)
        {
            throw new EmailException("Invalid URL set:" + url, e);
        }
-
-       return attach(new URLDataSource(url), name, description, disposition);
+       //use fixed url datasource
+       return attach(new FixedUrlDataSource(url), name, description, disposition);
     }
 
     /**
