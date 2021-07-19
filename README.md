@@ -1,6 +1,12 @@
 
 Apache Commons Email 源码见 [Github](https://github.com/apache/commons-email).
 
+代码diff：
+org.apache.commons.mail.MultiPartEmail#attach(java.net.URL, java.lang.String, java.lang.String, java.lang.String)
+和
+org.apache.commons.mail.FixedUrlDataSource#FixedUrlDataSource
+javax.activation.URLDataSource
+
 源码看类： javax.activation.URLDataSource
 ```java
     public InputStream getInputStream() throws IOException {
